@@ -1,0 +1,29 @@
+; Display a sequence of numbers in reverse order
+;
+; Initialize the values
+STO increment 2
+OUT "Enter an initial integer number:"
+IN number
+;
+; Display the values
+OUT "The values in reverse order are:"
+SUB tempNum number 1
+loopStart
+BRn tempNum loopEnd
+OUT number
+SUB number number increment
+SUB tempNum number 1
+JMP loopStart
+loopEnd
+;
+; Test the last value of number
+OUT "The last value of number is"
+OUT number
+BRzp number ifEnd
+OUT "The last value of number is negative."
+JMP ifEnd
+OUT "The last value of number is not negative."
+ifEnd
+;
+OUT "Have a nice day!"
+HALT
